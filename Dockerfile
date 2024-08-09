@@ -1,9 +1,9 @@
 FROM ubuntu:22.04
 
 ARG LIQUIDSOAP_VERSION=2.1.4
-ARG LIQUIDSOAP_DEB_URL=https://github.com/savonet/liquidsoap/releases/download/v2.1.4/liquidsoap_2.1.4-ubuntu-jammy-1_amd64.deb
+ARG LIQUIDSOAP_DEB_URL=https://github.com/savonet/liquidsoap/releases/download/v2.2.5/liquidsoap_2.2.5-ubuntu-jammy-1_amd64.deb
 
-LABEL maintainer="Raitis Rolis <raitis.rolis@gmail.com>"
+LABEL maintainer="Dmitry Mecker <gombovombo@gmail.com>"
 
 ENV DEBIAN_FRONTEND "noninteractive"
 
@@ -29,6 +29,10 @@ RUN liquidsoap --version
 
 WORKDIR /home/liquidsoap
 
-EXPOSE 1234 8000
-ENTRYPOINT ["liquidsoap"]
-CMD ["/home/liquidsoap/config/radio.liq"]
+EXPOSE 1234 8002
+
+# ENTRYPOINT ["liquidsoap"]
+
+# CMD ["/home/liquidsoap/config/main.liq"]
+
+# ENTRYPOINT [ "tail" , "-f", "/dev/null" ]
